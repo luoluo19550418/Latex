@@ -1,0 +1,49 @@
+%画流程图
+\documentclass[UTF8]{ctexart}
+\usepackage{tikz,mathpazo}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{flowchart}
+\begin{document}
+\begin{tikzpicture}[font={\sf \small}]
+\def \smbwd{2cm}
+\thispagestyle{empty}
+
+%定义每一步的具体形状
+\node (input) at (0,5) [draw, terminal, minimum width=3cm, minimum height=0.8cm] {信号输入}; %predproc decision storage process
+
+\node (LO) at (-5,4) [draw, terminal, minimum width=\smbwd, minimum height=1cm] {本振};
+\node (FM) at (-3,1.5) [draw, terminal, minimum width=\smbwd, minimum height=1cm] {倍频};
+
+\node (mixer) at (0,-2) [draw,terminal, minimum width=\smbwd, minimum height=1cm] {杜瓦混频器};
+\node (n) at (0,-3) [draw,terminal,minimum width=0cm,minimum height=0cm]{};
+\node (IF1) at (-5,-5) [draw,terminal, minimum width=\smbwd, minimum height=1cm] {中频1};
+\node (IF2) at (5,-5) [draw, terminal, minimum width=\smbwd, minimum height=1cm] {中频2};
+
+\node (FFTS1) at (-5,-8) [draw,terminal, minimum width=\smbwd, minimum height=1cm] {FFTS1};
+\node (FFTS2) at (5,-8) [draw, terminal, minimum width=\smbwd, minimum height=1cm] {FFTS2};
+
+%\node (storage) at (0,-5.5) [draw, storage, minimum width=\smbwd, minimum height=1cm] {数据存储}; %定义数据存储
+%\node (process) at (3,-5.5) [draw, process, minimum width=\smbwd, minimum height=1cm] {处理过程}; %定义处理过程
+%\coordinate (point1) at (0,-6.75);
+%\node (end) at (0,-7.75) [draw, terminal,minimum width=\smbwd,minimum height=0.5cm] {结束}; %定义结束
+
+%连接定义的形状，绘制流程图--表示垂直线，|表示箭头方向
+\draw[->] (input) -- (mixer);
+
+\draw[->] (LO) -- (FM);
+%\draw[->] (FM) -- (mixer);
+\draw [color=blue!50,->](-3,1.5) node[left]{$A$}-- node [color=red!70,pos=0.25,above,sloped]{本振}(0,-2) node[right]{$B$};
+
+\draw[->] (mixer) -- (n);
+\draw[->] (n) -| (IF1);
+\draw[->] (n) -| (IF2);
+
+
+\draw[->] (IF1) -- (FFTS1);
+\draw[->] (IF2) -- (FFTS2);
+%\draw[->] (decide) -| node[above]{是} (process);
+%\draw[->] (decide) -- node[above]{否}(storage);
+%\draw[->] (process) |- (point1);
+%\draw[->] (storage) -- (point1) -- (end);
+\end{tikzpicture}
+\end{document}
