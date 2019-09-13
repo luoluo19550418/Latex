@@ -1,0 +1,127 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+
+\title{噪声对高斯信号速度拟合值的影响试验}
+\author{qhz}
+\begin{document}
+\maketitle
+为验证噪声对高斯信号速度位置拟合值的影响，我们用python语言定义了两个函数：高斯函数和噪声函数。
+高斯函数gaussian(x,a,b,c)，其中x是已知数据序列，a、b、c分别表示高斯曲线的峰值、峰值位置（也就是峰值所在的速度位置）、半宽；
+噪声函数noise(x,snr)，其中snr表示信噪比。这里得到的初始噪声是由性噪比和随机数决定的，初始噪声再加上高斯信号得到的信号就趋于了我们所需要的真实信号（含有噪声的高斯信号）。
+%\par        换段落
+\par
+给定一组数列X=（x1,x2,...,xn），已知参数a=5,b=0,c=7,由高斯公式可求得对应的Y=(y1,y2,...,yn)，我们对已知数据X,Y进行高斯拟合(python scipy库中的curve\_fit函数拟合)，拟合结果与高斯函数中所给参数一致（表1）。给定已知参数snr=15，加上高斯噪声再拟合，可以看到峰值所在的速度位置b在一定的误差范围内左右波动（表2）。
+\begin{figure}[htbp]
+\begin{minipage}[t]{0.5\linewidth}  %线宽
+\center
+\includegraphics[width=10cm,height=5cm]{pic/wz.png}
+\caption{无噪声600个数据点}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\center
+\includegraphics[width=10cm,height=5cm]{pic/sj.png}
+\caption{加噪声600个数据点}
+\end{minipage}
+\end{figure}
+%加入表格
+%表1
+\begin{table}[H]
+\begin{minipage}{0.48\linewidth}           
+\centering
+\caption{无噪声情况下得到的拟合参数}
+\setlength{\tabcolsep}{5mm}{                   %调整表格宽度
+\begin{tabular}{|c|c|c|c|}
+\toprule
+序列& a& b& c\\
+\midrule
+1& 5.0& 0.0& 7.0\\
+2& 5.0& 0.0& 7.0\\
+3& 5.0& 0.0& 7.0\\
+4& 5.0& 0.0& 7.0\\
+5& 5.0& 0.0& 7.0\\
+6& 5.0& 0.0& 7.0\\
+7& 5.0& 0.0& 7.0\\
+8& 5.0& 0.0& 7.0\\
+9& 5.0& 0.0& 7.0\\
+10& 5.0& 0.0& 7.0\\
+\bottomrule
+\end{tabular}}
+\end{minipage}
+%表2
+\begin{minipage}{0.48\linewidth}
+\centering
+\caption{加15倍信噪比情况下的拟合参数}
+\setlength{\tabcolsep}{5mm}{
+\begin{tabular}{|c|c|c|c|}
+\toprule
+序列& a& b& c\\
+\midrule
+1& 4.87& -0.08& 7.04\\
+2& 5.05& -0.09& 6.96\\
+3& 4.86& 0.02& 7.18\\
+4& 5.11& -0.13& 6.91\\
+5& 5.03& -0.24& 7.01\\
+6& 4.94& 0.16& 7.10\\
+7& 5.08& -0.06& 6.89\\
+8& 5.12& 0.04& 6.90\\
+9& 5.06& 0.08& 6.95\\
+10& 5.05& 0.04& 7.02\\
+\bottomrule
+\end{tabular}}
+\end{minipage}
+\end{table}
+\newpage
+%不同信噪比
+\begin{table}           
+\centering
+\caption{不同信噪比情况下得到的拟合参数} 
+\setlength{\tabcolsep}{5mm}{                   %调整表格宽度
+\begin{tabular}{|c|c|c|c|}
+\toprule
+信噪比& a& b& c\\
+\midrule
+0& 5.55& 0.38& 6.35\\
+20& 5.02& 0.03& 6.98\\
+40& 5.00& 0.00& 6.99\\
+60& 5.00& 0.00& 7.00\\
+80& 5.00& 0.00& 7.00\\
+\bottomrule
+\end{tabular}}
+\end{table}
+如果我们给高斯函数加噪声时输入不同的信噪比，可以看出随着信噪比的提高峰值速度位置拟合参数b越趋于给定值5（表3）。图3中橙色线（wz\_fit）表示不加噪声情况下的峰值速度位置b随点数的变化；红线（sj\_fit）表示高斯值增加随机噪声后的峰值速度位置随点数的变化；蓝线（xz\_fit）则是随着信噪比的增加，拟合得到的峰值速度位置逐渐趋于0的情况。为了更加直观的分析不同情况下峰值速度位置拟合参数b的分布，图4左，中，右3个子图分别画出了在无噪声、加15信噪比噪声和不同信噪比下峰值速度位置拟合值区间占总体数值的百分比。由以上讨论，我们可以得出：\\
+1、在未加噪声的情况下，峰值速度位置b的拟合结果与计算高斯值时给定的初始值一致。\\
+2、在高斯值上增加随机噪声后，峰值速度位置b的拟合值随着点数的变化一直在给定初始值附近波动。\\
+3、随着信噪比的增加，参数拟合结果越精确。
+
+\begin{figure}[htbp]
+\center
+\includegraphics[width=10cm,height=5cm]{pic/plo_para.png}
+\caption{无噪声、加15倍信噪比噪声、不同信噪比下峰值速度位置的比较}
+\end{figure}
+
+\begin{figure}[htbp]
+\center
+\includegraphics[width=10cm,height=5cm]{pic/plo_hist.png}
+\caption{无噪声、加15倍信噪比噪声、不同信噪比下峰值速度位置区间的比较}
+\end{figure}
+\end{document}
+
+
+
+\iffalse
+\center
+附录：
+\center
+高斯拟合思想：由高斯公式
+\[f(x)=a\cdot e^{-\frac{(x-b)^2}{2\cdot c^2}} \]
+其中a,b,c分别表示高斯曲线的峰值，峰值位置和半宽信息，
+\fi
+%信噪比怎么给？计算
+%高斯拟合方式？
+%放到2.6，12CO和13CO对比
