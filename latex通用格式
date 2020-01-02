@@ -1,0 +1,26 @@
+\documentclass[11pt,a4paper]{article} %article必须要有
+\usepackage[left=20mm,right=20mm,top=15mm,bottom=15mm]{geometry}
+\renewcommand{\baselinestretch}{1.2} %1.5倍行间距
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{CJK} %中文支持
+\usepackage{titlesec}
+\titleformat*{\section}{\small\bfseries}
+\titleformat*{\subsection}{\small}
+\usepackage{color,framed} %加文本背景色宏包
+\definecolor{shadecolor}{rgb}{0.92,0.92,0.92} %定义文本背景色
+\setlength{\parindent}{0pt} %全局不缩进
+
+\title{python fits}
+\author{csluo}
+\date{\today}
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+\maketitle
+\tableofcontents
+\section{数据存储}
+
+\end{CJK}
+\end{document}
