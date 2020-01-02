@@ -1,3 +1,4 @@
+%模块导入部分
 \documentclass[11pt,a4paper]{article} %article必须要有
 \usepackage[left=20mm,right=20mm,top=15mm,bottom=15mm]{geometry}
 \renewcommand{\baselinestretch}{1.2} %1.5倍行间距
@@ -13,6 +14,7 @@
 \definecolor{shadecolor}{rgb}{0.92,0.92,0.92} %定义文本背景色
 \setlength{\parindent}{0pt} %全局不缩进
 
+%标题部分
 \title{python fits}
 \author{csluo}
 \date{\today}
@@ -22,5 +24,25 @@
 \tableofcontents
 \section{数据存储}
 
+%结束
 \end{CJK}
 \end{document}
+
+%插入伪代码
+\begin{shaded}
+\end{shaded}
+
+%图片插入（并行）
+\begin{figure}[htbp]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=5cm,width=5cm]{picture/4.png}
+\caption{fits头}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=5cm,width=5cm]{picture/5.png}
+\caption{fits头}
+\end{minipage}
+\end{figure}\\
