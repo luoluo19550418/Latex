@@ -8,7 +8,7 @@
 \usepackage{epstopdf}
 \usepackage{CJK} %中文支持
 \usepackage{titlesec}
-\titleformat*{\section}{\small\bfseries}
+\titleformat*{\section}{\small\bfseries} %去掉标题字体加大加黑
 \titleformat*{\subsection}{\small}
 \usepackage{color,framed} %加文本背景色宏包
 \definecolor{shadecolor}{rgb}{0.92,0.92,0.92} %定义文本背景色
