@@ -29,6 +29,9 @@ $$
 ‘---’ 三个短横线，长破折号
 '$-$' 两个美元符号夹着一个短横线，数学负号
 
-\underline{\hbox to 1.5cm{}}   %空下划线
+红色字体标注：\usepackage{color}
+             \textcolor{red}{your txet}
+
+空下划线：\underline{\hbox to 1.5cm{}}
 
 https://blog.csdn.net/qfire/article/details/81382048
