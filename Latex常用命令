@@ -1,13 +1,10 @@
+数学运算：
+
 希腊字母：$\delta$ 
-
 下标：R $_0$; 上下标 $T_A^*$ 
-
 分数：$\frac{1}{3}$
-
-字体加黑：{\bfseries 123}
-
-空格：\quad %q越多空格数越多
-
+双重积分：$\Omega_A=\iint \limits_{4\pi} fd\Omega$
+莱布尼兹积分：|_{0}^{\tau_{\nu}}
 角秒：$3^{\prime\prime}$
 
 大括号：
@@ -20,7 +17,12 @@ z & = & \frac xy
 \right.
 $$
 
-双重积分：$\Omega_A=\iint \limits_{4\pi} fd\Omega$
+
+
+文本：
+
+空格：\quad %q越多空格数越多
+字体加黑：{\bfseries 123}
 
 ‘-’ 一个短横线，连字符
 ‘--’ 两个短横线，短破折号
