@@ -1,2 +1,4 @@
 1、LaTeX Error: Something's wrong--perhaps a missing \item.
    解决：清理工程内容，重新编译即可
+2、\begin{document} error
+   解决：重新编译，删除提示内容
