@@ -24,10 +24,6 @@
 \tableofcontents
 \section{数据存储}
 
-%结束
-\end{CJK}
-\end{document}
-
 %插入伪代码
 \begin{shaded}
 \end{shaded}
@@ -46,3 +42,7 @@
 \caption{fits头}
 \end{minipage}
 \end{figure}\\
+
+%结束
+\end{CJK}
+\end{document}
