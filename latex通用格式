@@ -24,6 +24,14 @@
 \tableofcontents
 \section{数据存储}
 
+%列举，编号，样式设定
+\begin{itemize}
+\item section2 介绍CO观测条件和中性氢数据集；
+\item section3 介绍由CO数据获取本地臂和英仙臂的物理参数。通过 HI数据和部分外臂结果；
+\item section4 讨论 G140区域的旋臂结构；
+\item section5 介绍在英仙臂上证认的 5个纤维状巨分子云，讨论它们和银河系大尺度结构的关系。
+\end{itemize}
+
 %插入伪代码
 \begin{shaded}
 \end{shaded}
