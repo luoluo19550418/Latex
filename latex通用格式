@@ -40,13 +40,13 @@
 \begin{figure}[htbp]   %常用选项[htbp]是浮动格式：h当前位置；t顶部；b底部；p浮动页。
 \begin{minipage}[t]{0.5\linewidth}
 \centering
-\includegraphics[height=5cm,width=5cm]{picture/4.png}
+\includegraphics[width=5cm,height=5cm]{picture/4.png}
 \caption{fits头}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.5\linewidth}
 \centering
-\includegraphics[height=5cm,width=5cm]{picture/5.png}
+\includegraphics[width=5cm,height=5cm]{picture/5.png}
 \caption{fits头}
 \end{minipage}
 \end{figure}\\
