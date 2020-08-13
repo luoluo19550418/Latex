@@ -54,3 +54,6 @@
 %结束
 \end{CJK}
 \end{document}
+
+%常用命令
+%{\bfseries 观测指令：} %黑体
